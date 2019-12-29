@@ -1,0 +1,19 @@
+{
+  "FilePath": "/Users/Adrise/Documents/workspace/demo-container/demo-container.csproj",
+  "Configuration": {
+    "ConfigurationName": "MVC-3.0",
+    "LanguageVersion": "3.0",
+    "Extensions": [
+      {
+        "ExtensionName": "MVC-3.0"
+      }
+    ]
+  },
+  "ProjectWorkspaceState": {
+    "TagHelpers": [],
+    "CSharpLanguageVersion": 703
+  },
+  "RootNamespace": "demo_container",
+  "Documents": [],
+  "SerializationFormat": "0.2"
+}
