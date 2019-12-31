@@ -1,37 +1,94 @@
-# demo-webapi-containerised using docker
+# Aspnetcore 3.0 web api containerised and orchestrated by kubernetes
 
-Created a `docker file` to : 
+The `docker file` in this repository : 
 
-- [x] Get `aspnet:3.0` & `dotnet/core/sdk:3.0`
-- [x] `Build` and `publish` the project 
-- [x] Copy required files to the image working directory `app`
-- [x] Expose internal port to the container as `80`
+- [x] Gets `aspnet:3.0` & `dotnet/core/sdk:3.0`
+- [x] `Builds` and `publishes` the project 
+- [x] Copies the required files to the image working directory `app`
+- [x] Exposes internal port to the container as `80`
 
-
-
-## Build the docker image 
+## Create a docker Image
 ```
 docker build -t demo-container . 
 ```
 
-## Create Container using the image 
+## Create docker container
 
 
-- [x]  Mapped internal port to the exteranl user of the container and disposing container.
-
-
-```
-docker run -it --rm -p 8080:80 demo-container 
-```
-
-- [x]  Always running the container without disposing it once closing the app.
+- [x]  Maps port exposed in the docker file to port 8080 in order to access the api through the container
+  
+- [x] Removes the containers once it is stopped
 
 ```
-docker run -d -p 8080:80 --name mywebapi demo-container
+docker run -it --rm -p 8080:80 --name containerName demo-container 
 ```
 
-## Run the web api inside the container
+- [x]  Keep the container running without shutting it down
 
 ```
-docker exec -it mywebapi bash -c 'curl http://localhost:8080/weatherforecast’
+docker run -d -p 8080:80 --name containerName demo-container
 ```
+
+## Runing app inside the container 
+
+```
+docker exec -it containerName bash -c 'curl http://localhost:8080/weatherforecast’
+```
+
+# Orchestrating web api via kubernetes
+
+## Check for available pods
+
+- [x]  A group of one or more containers deployed to a single node
+```
+kubectl get po
+```
+
+## Create `pod` for the container 
+
+- [x]  The container will be running in the `pod`
+
+```
+kubectl apply -f ./deployment.yaml 
+```
+- [x]  The app should be running and waiting to listen via a port 
+
+```
+kubectl logs -f demo-aspnetcore-deployment-54978666d5-l4kq5
+```
+
+## Create a `service` which will : 
+
+- [x]  Allow `access` to the `pod`
+- [x]  `Load balance` the requests coming into the pod
+
+## To run the service.yaml file run 
+
+```
+kubectl apply -f ./deployment.yaml 
+```
+## See that your service has :
+
+- [x]  Type as `LoadBalancer`
+- [x]  External-IP `localhost`
+- [x]  Port is mapped to `8080`
+
+```
+kubectl get services
+```
+## Run the api
+
+- [x]  Should output the data from the get endpoint
+
+```
+http://localhost:8080/WeatherForecast
+```
+
+## Scale the app from 1 to 5 
+
+- [x]  5 instances of the app should be running
+
+```
+kubectl scale --replicas=5 deployment/demo-aspnetcore-deployment
+```
+  

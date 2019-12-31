@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-aspnetcore-service
+spec:
+  selector:
+    app: demo-aspnetcore-pod
+  ports:
+  - port: 8080
+    targetPort: 80
+  type: LoadBalancer
