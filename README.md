@@ -29,13 +29,13 @@ docker run -it --rm -p 8080:80 --name containerName demo-container
 docker run -d -p 8080:80 --name containerName demo-container
 ```
 
-## Runing app inside the container 
+## Runing app inside the `container`
 
 ```
 docker exec -it containerName bash -c 'curl http://localhost:8080/weatherforecast’
 ```
 
-# Orchestrating web api via kubernetes
+# Orchestrating containerized web api by kubernetes
 
 The `deployment.yaml file ` in this repository : 
 
@@ -47,7 +47,7 @@ The `service.yaml file ` in this repository :
 - [x] Allows access to the pod for the client to access the api
 - [x] Maps `port : 8080` to the internal `container port: 80`
 
-## Check for available pods
+## Check for available `pods`
 
 - [x]  A group of one or more containers deployed to a single node
 ```
@@ -72,12 +72,12 @@ kubectl logs -f demo-aspnetcore-deployment-54978666d5-l4kq5
 - [x]  Allow `access` to the `pod`
 - [x]  `Load balance` the requests coming into the pod
 
-## To run the service.yaml file run 
+## To run the `service.yaml` file run 
 
 ```
 kubectl apply -f ./deployment.yaml 
 ```
-## See that your service has :
+## See that your `service` has :
 
 - [x]  Type as `LoadBalancer`
 - [x]  External-IP `localhost`
@@ -94,7 +94,7 @@ kubectl get services
 http://localhost:8080/WeatherForecast
 ```
 
-## Scale the app from 1 to 5 
+## `Scale` the app from 1 to 5 
 
 - [x]  5 instances of the app should be running
 
