@@ -1,4 +1,4 @@
-# Aspnetcore 3.0 web api containerised and orchestrated by kubernetes
+# Aspnetcore 3.0 web api containerized and orchestrated by kubernetes
 
 The `docker file` in this repository : 
 
