@@ -101,3 +101,33 @@ http://localhost:8080/WeatherForecast
 ```
 kubectl scale --replicas=5 deployment/demo-aspnetcore-deployment
 ```
+# Useful kubectl commands 
+
+## Get `Nodes / Clusters`
+
+```
+kubectl get nodes
+```
+## Delete `Pods / Deployment`
+
+```
+kubectl delete -f ./deployment.yaml 
+```
+
+## Investigate why a `POD` is `not running`
+
+```
+kubectl describe pods <POD-ID>
+```
+- [x]  View all pods and compare 
+
+```
+kubectl describe pods
+```
+
+## View `POD` logs
+
+```
+kubectl logs -f <POD-ID>
+```
+
