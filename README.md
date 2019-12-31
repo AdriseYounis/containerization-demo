@@ -37,6 +37,16 @@ docker exec -it containerName bash -c 'curl http://localhost:8080/weatherforecas
 
 # Orchestrating web api via kubernetes
 
+The `deployment.yaml file ` in this repository : 
+
+- [x] Creates the `pod` , `container` and locates the `image`
+- [x] Maps the `port` for the `container` to 80 
+
+The `service.yaml file ` in this repository : 
+
+- [x] Allows access to the pod for the client to access the api
+- [x] Maps `port : 8080` to the internal `container port: 80`
+
 ## Check for available pods
 
 - [x]  A group of one or more containers deployed to a single node
@@ -91,4 +101,3 @@ http://localhost:8080/WeatherForecast
 ```
 kubectl scale --replicas=5 deployment/demo-aspnetcore-deployment
 ```
-  
