@@ -75,7 +75,7 @@ kubectl logs -f demo-aspnetcore-deployment-54978666d5-l4kq5
 ## To run the `service.yaml` file run 
 
 ```
-kubectl apply -f ./deployment.yaml 
+kubectl apply -f ./service.yaml 
 ```
 ## See that your `service` has :
 
