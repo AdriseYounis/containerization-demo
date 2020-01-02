@@ -130,4 +130,10 @@ kubectl describe pods
 ```
 kubectl logs -f <POD-ID>
 ```
+## View Dashboard
+
+```
+minikube dashboard &
+```
+
 
